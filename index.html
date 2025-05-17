@@ -6,64 +6,100 @@
     <title>Muhammed Ansaf - Flutter Developer Portfolio</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .header-transparent { background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(10px); }
+        .header-solid { background: #115e59; }
+        .loader { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: #f3f4f6; display: flex; justify-content: center; align-items: center; z-index: 9999; transition: opacity 0.5s; }
+        .loader.hidden { opacity: 0; pointer-events: none; }
+        .pulse:hover { animation: pulse 1.5s infinite; }
+        @keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.2); } 100% { transform: scale(1); } }
+    </style>
 </head>
-<body class="bg-gray-100 font-sans">
+<body class="bg-gray-50">
+    <!-- Loader -->
+    <div class="loader">
+        <div class="animate-spin rounded-full h-16 w-16 border-t-4 border-orange-500"></div>
+    </div>
+
     <!-- Header -->
-    <header class="bg-indigo-900 text-white sticky top-0 z-10 shadow">
+    <header id="header" class="text-white sticky top-0 z-20 shadow-lg header-transparent transition-all duration-300">
         <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
             <h1 class="text-2xl font-bold">Muhammed Ansaf</h1>
-            <ul class="hidden md:flex space-x-6">
-                <li><a href="#about" class="hover:text-indigo-300">About</a></li>
-                <li><a href="#education" class="hover:text-indigo-300">Education</a></li>
-                <li><a href="#skills" class="hover:text-indigo-300">Skills</a></li>
-                <li><a href="#experience" class="hover:text-indigo-300">Experience</a></li>
-                <li><a href="#projects" class="hover:text-indigo-300">Projects</a></li>
-                <li><a href="#contact" class="hover:text-indigo-300">Contact</a></li>
-            </ul>
+            <div class="hidden md:flex items-center space-x-6">
+                <ul class="flex space-x-6">
+                    <li><a href="#about" class="hover:text-orange-500 transition">About</a></li>
+                    <li><a href="#education" class="hover:text-orange-500 transition">Education</a></li>
+                    <li><a href="#skills" class="hover:text-orange-500 transition">Skills</a></li>
+                    <li><a href="#experience" class="hover:text-orange-500 transition">Experience</a></li>
+                    <li><a href="#projects" class="hover:text-orange-500 transition">Projects</a></li>
+                    <li><a href="#contact" class="hover:text-orange-500 transition">Contact</a></li>
+                </ul>
+                <div class="flex space-x-4">
+                    <a href="https://github.com/muhammedansaff" target="_blank" class="hover:text-orange-500 pulse">
+                        <i class="fab fa-github text-xl"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/muhammed-ansaf-74833927b/" target="_blank" class="hover:text-orange-500 pulse">
+                        <i class="fab fa-linkedin text-xl"></i>
+                    </a>
+                </div>
+            </div>
             <button class="md:hidden focus:outline-none" onclick="toggleMenu()">
                 <i class="fas fa-bars text-2xl"></i>
             </button>
         </nav>
         <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden md:hidden bg-indigo-800 text-white">
+        <div id="mobile-menu" class="hidden md:hidden bg-teal-800 text-white">
             <ul class="flex flex-col space-y-4 px-6 py-4">
-                <li><a href="#about" class="hover:text-indigo-300">About</a></li>
-                <li><a href="#education" class="hover:text-indigo-300">Education</a></li>
-                <li><a href="#skills" class="hover:text-indigo-300">Skills</a></li>
-                <li><a href="#experience" class="hover:text-indigo-300">Experience</a></li>
-                <li><a href="#projects" class="hover:text-indigo-300">Projects</a></li>
-                <li><a href="#contact" class="hover:text-indigo-300">Contact</a></li>
+                <li><a href="#about" class="hover:text-orange-500">About</a></li>
+                <li><a href="#education" class="hover:text-orange-500">Education</a></li>
+                <li><a href="#skills" class="hover:text-orange-500">Skills</a></li>
+                <li><a href="#experience" class="hover:text-orange-500">Experience</a></li>
+                <li><a href="#projects" class="hover:text-orange-500">Projects</a></li>
+                <li><a href="#contact" class="hover:text-orange-500">Contact</a></li>
+                <li>
+                    <a href="https://github.com/muhammedansaff" target="_blank" class="hover:text-orange-500">
+                        <i class="fab fa-github mr-2"></i>GitHub
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.linkedin.com/in/muhammed-ansaf-74833927b/" target="_blank" class="hover:text-orange-500">
+                        <i class="fab fa-linkedin mr-2"></i>LinkedIn
+                    </a>
+                </li>
             </ul>
         </div>
     </header>
 
     <!-- Hero Section -->
-    <section id="about" class="bg-indigo-700 text-white py-20">
-        <div class="container mx-auto px-6 text-center">
-            <h2 class="text-4xl font-bold mb-2">Muhammed Ansaf M</h2>
-            <h3 class="text-2xl mb-4">Flutter Developer</h3>
+    <section id="about" class="bg-gradient-to-r from-teal-600 to-teal-800 text-white py-32">
+        <div class="container mx-auto px-6 text-center" data-aos="fade-up" data-aos-duration="1000">
+            <h2 class="text-5xl font-bold mb-2">Muhammed Ansaf M</h2>
+            <h3 class="text-3xl mb-4">Flutter Developer</h3>
             <p class="text-lg max-w-2xl mx-auto">
-                Passionate Flutter developer with expertise in crafting seamless, user-centric mobile applications. Skilled in UI/UX design, cross-platform development, and API integration using Dart and Flutter.
+                Crafting seamless, user-centric mobile apps with Flutter and Dart. Passionate about UI/UX design, state management, and API integration, I build innovative solutions that delight users.
             </p>
-            <a href="#contact" class="mt-6 inline-block bg-white text-indigo-700 px-6 py-3 rounded-full font-semibold hover:bg-gray-200">Get in Touch</a>
+            <a href="#contact" class="mt-6 inline-block bg-orange-500 text-white px-8 py-3 rounded-full font-semibold hover:bg-orange-600 transition transform hover:scale-105">Get in Touch</a>
         </div>
     </section>
 
     <!-- Education Section -->
     <section id="education" class="container mx-auto px-6 py-16">
-        <h2 class="text-3xl font-bold text-indigo-900 mb-8 text-center">Education</h2>
+        <h2 class="text-3xl font-bold text-teal-800 mb-8 text-center" data-aos="fade-up">Education</h2>
         <div class="space-y-6">
-            <div class="bg-white p-6 rounded-lg shadow">
+            <div class="bg-white p-6 rounded-xl shadow-lg" data-aos="slide-up" data-aos-delay="100">
                 <h3 class="text-xl font-semibold">B.Sc. Computer Science</h3>
                 <p class="text-gray-600">Calicut University, Kerala | 2021 - 2024</p>
                 <p class="text-gray-600">CGPA: 8.5/10</p>
             </div>
-            <div class="bg-white p-6 rounded-lg shadow">
+            <div class="bg-white p-6 rounded-xl shadow-lg" data-aos="slide-up" data-aos-delay="200">
                 <h3 class="text-xl font-semibold">Higher Secondary</h3>
                 <p class="text-gray-600">Rahmania HSS, Calicut | 2019 - 2021</p>
                 <p class="text-gray-600">Percentage: 92%</p>
             </div>
-            <div class="bg-white p-6 rounded-lg shadow">
+            <div class="bg-white p-6 rounded-xl shadow-lg" data-aos="slide-up" data-aos-delay="300">
                 <h3 class="text-xl font-semibold">SSLC</h3>
                 <p class="text-gray-600">C.I.R.H.S.S, Calicut | 2018 - 2019</p>
                 <p class="text-gray-600">Percentage: 95%</p>
@@ -72,10 +108,10 @@
     </section>
 
     <!-- Skills Section -->
-    <section id="skills" class="bg-gray-200 py-16">
+    <section id="skills" class="bg-gray-100 py-16">
         <div class="container mx-auto px-6">
-            <h2 class="text-3xl font-bold text-indigo-900 mb-8 text-center">Skills</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <h2 class="text-3xl font-bold text-teal-800 mb-8 text-center" data-aos="fade-up">Skills</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6" data-aos="zoom-in" data-aos-delay="100">
                 <div>
                     <h3 class="text-xl font-semibold mb-4">Technical Skills</h3>
                     <ul class="text-gray-600 space-y-2">
@@ -103,8 +139,8 @@
 
     <!-- Experience Section -->
     <section id="experience" class="container mx-auto px-6 py-16">
-        <h2 class="text-3xl font-bold text-indigo-900 mb-8 text-center">Work Experience</h2>
-        <div class="bg-white p-6 rounded-lg shadow">
+        <h2 class="text-3xl font-bold text-teal-800 mb-8 text-center" data-aos="fade-up">Work Experience</h2>
+        <div class="bg-white p-6 rounded-xl shadow-lg" data-aos="slide-up">
             <h3 class="text-xl font-semibold">Flutter Developer Intern</h3>
             <p class="text-gray-600">Zoople Technologies, Calicut | June 2023 (1 Month)</p>
             <ul class="text-gray-600 mt-4 space-y-2">
@@ -117,48 +153,68 @@
     </section>
 
     <!-- Projects Section -->
-    <section id="projects" class="bg-gray-200 py-16">
+    <section id="projects" class="bg-gray-100 py-16">
         <div class="container mx-auto px-6">
-            <h2 class="text-3xl font-bold text-indigo-900 mb-8 text-center">Projects</h2>
+            <h2 class="text-3xl font-bold text-teal-800 mb-8 text-center" data-aos="fade-up">Projects</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <div class="bg-white p-6 rounded-lg shadow hover:shadow-lg transition">
+                <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl hover:scale-105 transition transform" data-aos="zoom-in" data-aos-delay="100">
                     <h3 class="text-xl font-semibold">JobHub</h3>
                     <p class="text-gray-600">Job search platform built with Flutter, Dart, and Firebase.</p>
+                    <div class="flex flex-wrap gap-2 mt-4">
+                        <span class="bg-teal-100 text-teal-800 text-sm px-2 py-1 rounded">Flutter</span>
+                        <span class="bg-teal-100 text-teal-800 text-sm px-2 py-1 rounded">Firebase</span>
+                    </div>
                     <ul class="text-gray-600 mt-4 space-y-2">
                         <li>Features: Job listings, search filters, user profiles.</li>
-                        <li>Tech: Firebase for real-time data and authentication.</li>
+                        <li>Real-time data and authentication.</li>
                     </ul>
                 </div>
-                <div class="bg-white p-6 rounded-lg shadow hover:shadow-lg transition">
+                <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl hover:scale-105 transition transform" data-aos="zoom-in" data-aos-delay="200">
                     <h3 class="text-xl font-semibold">Cartify</h3>
                     <p class="text-gray-600">E-commerce app UI design with Flutter.</p>
+                    <div class="flex flex-wrap gap-2 mt-4">
+                        <span class="bg-teal-100 text-teal-800 text-sm px-2 py-1 rounded">Flutter</span>
+                        <span class="bg-teal-100 text-teal-800 text-sm px-2 py-1 rounded">UI/UX</span>
+                    </div>
                     <ul class="text-gray-600 mt-4 space-y-2">
                         <li>Features: Intuitive navigation, modern aesthetics.</li>
-                        <li>Tech: Reusable Flutter widgets.</li>
+                        <li>Reusable widgets for scalability.</li>
                     </ul>
                 </div>
-                <div class="bg-white p-6 rounded-lg shadow hover:shadow-lg transition">
+                <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl hover:scale-105 transition transform" data-aos="zoom-in" data-aos-delay="300">
                     <h3 class="text-xl font-semibold">Doctor Consultant</h3>
                     <p class="text-gray-600">Healthcare app UI for doctor consultations.</p>
+                    <div class="flex flex-wrap gap-2 mt-4">
+                        <span class="bg-teal-100 text-teal-800 text-sm px-2 py-1 rounded">Flutter</span>
+                        <span class="bg-teal-100 text-teal-800 text-sm px-2 py-1 rounded">Responsive</span>
+                    </div>
                     <ul class="text-gray-600 mt-4 space-y-2">
                         <li>Features: Appointment scheduling, doctor profiles.</li>
-                        <li>Tech: Flutter, responsive design.</li>
+                        <li>Accessible design for all devices.</li>
                     </ul>
                 </div>
-                <div class="bg-white p-6 rounded-lg shadow hover:shadow-lg transition">
+                <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl hover:scale-105 transition transform" data-aos="zoom-in" data-aos-delay="400">
                     <h3 class="text-xl font-semibold">Gemini Chatbot</h3>
                     <p class="text-gray-600">AI chatbot using Gemini API and Flutter.</p>
+                    <div class="flex flex-wrap gap-2 mt-4">
+                        <span class="bg-teal-100 text-teal-800 text-sm px-2 py-1 rounded">Flutter</span>
+                        <span class="bg-teal-100 text-teal-800 text-sm px-2 py-1 rounded">API</span>
+                    </div>
                     <ul class="text-gray-600 mt-4 space-y-2">
                         <li>Features: Real-time messaging, API-driven responses.</li>
-                        <li>Tech: Dash Chat package, API integration.</li>
+                        <li>Optimized for smooth interactions.</li>
                     </ul>
                 </div>
-                <div class="bg-white p-6 rounded-lg shadow hover:shadow-lg transition">
+                <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl hover:scale-105 transition transform" data-aos="zoom-in" data-aos-delay="500">
                     <h3 class="text-xl font-semibold">Weather</h3>
                     <p class="text-gray-600">Weather forecast app with real-time data.</p>
+                    <div class="flex flex-wrap gap-2 mt-4">
+                        <span class="bg-teal-100 text-teal-800 text-sm px-2 py-1 rounded">Flutter</span>
+                        <span class="bg-teal-100 text-teal-800 text-sm px-2 py-1 rounded">Bloc</span>
+                    </div>
                     <ul class="text-gray-600 mt-4 space-y-2">
                         <li>Features: Location-based forecasts, dynamic UI.</li>
-                        <li>Tech: Flutter, Bloc, OpenWeather API.</li>
+                        <li>Powered by OpenWeather API.</li>
                     </ul>
                 </div>
             </div>
@@ -166,13 +222,21 @@
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="bg-indigo-900 text-white py-16">
-        <div class="container mx-auto px-6 text-center">
+    <section id="contact" class="bg-teal-800 text-white py-16">
+        <div class="container mx-auto px-6 text-center" data-aos="fade-up">
             <h2 class="text-3xl font-bold mb-8">Contact Me</h2>
             <div class="flex flex-col items-center space-y-4">
                 <p><i class="fas fa-phone mr-2"></i> 9562895536</p>
-                <p><i class="fas fa-envelope mr-2"></i> <a href="mailto:muhammedansaf44@gmail.com" class="hover:text-indigo-300">muhammedansaf44@gmail.com</a></p>
+                <p><i class="fas fa-envelope mr-2"></i> <a href="mailto:muhammedansaf44@gmail.com" class="hover:text-orange-500 transition">muhammedansaf44@gmail.com</a></p>
                 <p><i class="fas fa-map-marker-alt mr-2"></i> Calicut, Kerala</p>
+                <div class="flex space-x-6 mt-4">
+                    <a href="https://github.com/muhammedansaff" target="_blank" class="hover:text-orange-500 pulse">
+                        <i class="fab fa-github text-2xl"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/muhammed-ansaf-74833927b/" target="_blank" class="hover:text-orange-500 pulse">
+                        <i class="fab fa-linkedin text-2xl"></i>
+                    </a>
+                </div>
             </div>
         </div>
     </section>
@@ -180,16 +244,41 @@
     <!-- Footer -->
     <footer class="bg-gray-800 text-white py-8">
         <div class="container mx-auto px-6 text-center">
-            <p>&copy; 2025 Muhammed Ansaf. All rights reserved.</p>
+            <p>© 2025 Muhammed Ansaf. All rights reserved.</p>
         </div>
     </footer>
 
-    <!-- JavaScript for Mobile Menu Toggle -->
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
+        // Initialize AOS
+        AOS.init();
+
+        // Mobile Menu Toggle
         function toggleMenu() {
             const menu = document.getElementById('mobile-menu');
             menu.classList.toggle('hidden');
         }
+
+        // Header Scroll Effect
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('header');
+            if (window.scrollY > 50) {
+                header.classList.remove('header-transparent');
+                header.classList.add('header-solid');
+            } else {
+                header.classList.add('header-transparent');
+                header.classList.remove('header-solid');
+            }
+        });
+
+        // Hide Loader
+        window.addEventListener('load', () => {
+            const loader = document.querySelector('.loader');
+            setTimeout(() => {
+                loader.classList.add('hidden');
+            }, 500);
+        });
     </script>
 </body>
 </html>
